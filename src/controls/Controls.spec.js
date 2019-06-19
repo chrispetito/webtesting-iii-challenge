@@ -30,7 +30,7 @@ describe('<Controls />', () => {
 
     })
     it('closed toggle button is disabled if the gate is locked', () => {
-        const { getByTestId } = render(<Controls closed={true} />)
+        const { getByTestId } = render(<Controls locked={true} />)
         const closed = getByTestId('closed')
         expect(closed).toHaveProperty('disabled');
     })
