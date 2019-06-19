@@ -9,6 +9,10 @@ describe('<Controls />', () => {
     it('Controls render without crashing', () => {
         render(<Controls />)
     })
+    it('controls match snapshot', ()=> {
+        const { container } = render(<Controls />)
+        expect(container).toMatchSnapshot();
+    })
     it('displays closed and locked buttons', () => {
         const { getByText } = render(<Controls />)
 

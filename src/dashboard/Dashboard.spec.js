@@ -8,6 +8,10 @@ describe('<Dashboard />', () => {
     it('Dashboard renders without crashing', () => {
         render(<Dashboard />)
     })
+    it('dashboard matches snapshot', ()=> {
+        const { container } = render(<Dashboard />)
+        expect(container).toMatchSnapshot()
+    })
     it('renders controls and display', () => {
         const { getByText } = render(<Dashboard />)
         getByText(/^unlocked$/i)

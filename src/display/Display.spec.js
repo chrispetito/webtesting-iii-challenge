@@ -9,6 +9,10 @@ describe("<Display />", () => {
   it("display renders without crashing", () => {
     render(<Display />);
   });
+  it('display matches snapshot', ()=> {
+      const { container } = render(<Display />)
+      expect(container).toMatchSnapshot()
+  })
   it("displays Closed and Locked when closed and locked are true", () => {
     const { getByTestId } = render(<Display closed={true} locked={true} />);
     const closed = getByTestId("closed");
