@@ -3,7 +3,7 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/react/cleanup-after-each'
 import Controls from './Controls'
-import 'jest-dom'
+import 'jest-dom/extend-expect'
 
 describe('<Controls />', () => {
     it('Controls render without crashing', () => {
@@ -36,11 +36,11 @@ describe('<Controls />', () => {
     it('closed toggle button is disabled if the gate is locked', () => {
         const { getByTestId } = render(<Controls locked={true} />)
         const closed = getByTestId('closed')
-        expect(closed).toHaveProperty('disabled');
+        expect(closed).toBeDisabled();
     })
     it('locked toggle button is disabled if the gate is open', () => {
         const { getByTestId } = render(<Controls closed={!true} />)
         const locked = getByTestId('locked')
-        expect(locked).toHaveProperty('disabled')
+        expect(locked).toBeDisabled();
     })
 })
